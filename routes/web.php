@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('nivel','nivelController@guardar');
+Route::get('nivel/eliminar_modificar','nivelController@listar')->name('nivel_listar');
+
+Route::get('estudiantes','estudiantesController@guardar');
+Route::get('estudiantes/eliminar_modificar','estudiantesController@listar')->name('estudiantes_listar');
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
