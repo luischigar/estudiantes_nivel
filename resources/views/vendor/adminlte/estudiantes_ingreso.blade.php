@@ -37,7 +37,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Nivel</label>
-                                    <input name="nivel" type="text" class="form-control" placeholder="ingrese Nivel">
+                                    <!-- <input name="nivel" type="text" class="form-control" placeholder="ingrese Nivel"> -->
+                                    <select class="combobox form-control" name="nivel">
+                                        <option value="" selected="selected">Seleccionar Nivel</option>
+                                        @foreach($datos as $item)
+                                        <option value="{{$item->id}}">{{$item->descripcion}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 <button type="submit" id="enviar" class="btn btn-success">Guardar</button>
                             </form>

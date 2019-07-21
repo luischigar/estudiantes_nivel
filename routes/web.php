@@ -21,7 +21,7 @@ Route::delete('nivel_eliminar/{id}','nivelController@eliminar')->name('nivel_eli
 Route::get('nivel_editar/{id}','nivelController@editar');
 Route::put('nivel_actualizar/{id}','nivelController@modificar');
 
-Route::POST('estudiantes','estudiantesController@guardar');
+Route::post('estudiantes','estudiantesController@guardar');
 Route::get('/estudiantesventana','estudiantesController@ventana');
 Route::get('estudiantes/eliminar_modificar','estudiantesController@listar')->name('estudiantes_listar');
 
