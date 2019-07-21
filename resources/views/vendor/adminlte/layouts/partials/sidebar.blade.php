@@ -25,7 +25,7 @@
               <span class="input-group-btn">
                 <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
               </span>
-            </div>
+            </div> 
         </form>
         <!-- /.search form -->
 
@@ -36,14 +36,14 @@
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Nivel</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('nivel') }}">Ingreso</a></li>
+                    <li><a href="{{ url('/nivelventana') }}">Ingreso</a></li>
                     <li><a href="{{ url('nivel/eliminar_modificar') }}">Eliminacion Modificacion</a></li>
                 </ul>
             </li>
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>ESTUDIANTES</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="{{ url('estudiantes') }}">Ingreso</a></li>
+                    <li><a href="{{ url('/estudiantesventana') }}">Ingreso</a></li>
                     <li><a href="{{ url('estudiantes/eliminar_modificar') }}">Eliminacion Modificacion</a></li>
                 </ul>
             </li>

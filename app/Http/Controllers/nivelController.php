@@ -3,29 +3,54 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Nivel;
 
 class nivelController extends Controller
 {
+	public function ventana()
+	{
+		return view('adminlte::nivel_ingreso');
+	}
     public function guardar(Request $request){
-	    //$msg = "hola"; 
-	    //dd($msg);
-	    //dd($request->all());
-	    //$producto = new Producto();
-	    //$producto->descripcion = 'ff';
-	    //$producto->precio = 20;
-	    //$producto->cantidad = 2;
-	    //$producto->descripcion = $request->descripcion;
-	   // $producto->precio = $request->precio;
-	    //$producto->cantidad = $request->cantidad;
+	    
+	    $nivel = new Nivel();
+	    
+	    $nivel->descripcion = $request->descripcion;
+	   
 
-	    //$producto->save();
-	    //dd('guardado');
+	    $nivel->save();
+	    //dd($nivel->descripcion);
+	    
 	    return view('adminlte::nivel_ingreso');
-	    //return response()->json(['mensaje'=> 'Datos Correctos']);
+	    
 	}
 	public function listar(){
-	    //$consulta = Producto::all();
-	    return view('adminlte::nivel_listar');
-	    //->with('datos',$consulta);
+	    $consulta = Nivel::all();
+	    return view('adminlte::nivel_listar')->with('datos',$consulta);
+	}
+	public function eliminar($id)
+	{
+		$consulta = Nivel::findOrFail($id);
+
+		$consulta->delete();
+
+		$consulta = Nivel::all();
+	    return view('adminlte::nivel_listar')->with('datos',$consulta);
+	}
+	public function editar($id)
+	{
+		$consulta = Nivel::findOrFail($id);
+
+		 return view('adminlte::nivel_modificar')->with('datos',$consulta);
+
+	}
+	public function modificar(Request $request, $id)
+	{
+		$consulta = Nivel::findOrFail($id);
+
+		$consulta->descripcion = $request->descripcion;
+
+		$consulta->save();
+		return redirect('nivel/eliminar_modificar');
 	}
 }

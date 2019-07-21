@@ -19,16 +19,16 @@
 	                        </div>
 	                        <!-- /.box-header -->
 	                        <div class="box-body">
-	                            <form role="form" method="post" action="{{url('/nivel')}}">
-	                            	
+	                            <form role="form" method="post" action="{{url('nivel_actualizar',$datos->id)}}">
+	                            	@method('PUT')
 	                                @csrf
 	                                
 	                                <!-- text input -->
 	                                <div class="form-group">
 	                                    <label>Descripcion</label>
-	                                    <input name="descripcion" type="text" class="form-control" placeholder="ingrese descripcion">
+	                                    <input value="{{$datos->descripcion}}" name="descripcion" type="text" class="form-control" placeholder="ingrese descripcion">
 	                                </div>
-	                                <button type="submit" id="enviar" class="btn btn-success">Guardar</button>
+	                                <button type="submit" id="enviar" class="btn btn-success">Modificar</button>
 	                            </form>
 	                        </div>
 	                        <!-- /.box-body -->

@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class estudiantesController extends Controller
 {
+	public function ventana()
+	{
+		return view('adminlte::estudiantes_ingreso');
+	}
     public function guardar(Request $request){
 	    //$msg = "hola"; 
 	    //dd($msg);

@@ -24,9 +24,23 @@
                         </thead>
                         <tbody>
                             
+                            @foreach($datos as $item)
                             <tr>
-                                
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->descripcion}}</td>
+                                <td>
+                                    <a href="{{url('nivel_editar', $item->id)}}" type="button" class="btn btn-block btn-success">Modificar</a></td>
+                                <td>
+
+                                    <form method="post" action="{{route('nivel_eliminar',$item->id)}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <!-- <input type="hidden" name="_mothod" value="delete"> -->
+                                        <button type="submit" class="btn btn-block btn-danger">Eliminar</button>
+                                    </form>
+                                </td>
                             </tr>
+                            @endforeach
                             
                         </tbody>
                     </table>

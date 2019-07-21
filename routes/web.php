@@ -14,10 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('nivel','nivelController@guardar');
+Route::post('/nivel','nivelController@guardar')->name('nivel');
+Route::get('/nivelventana','nivelController@ventana');
 Route::get('nivel/eliminar_modificar','nivelController@listar')->name('nivel_listar');
+Route::delete('nivel_eliminar/{id}','nivelController@eliminar')->name('nivel_eliminar');
+Route::get('nivel_editar/{id}','nivelController@editar');
+Route::put('nivel_actualizar/{id}','nivelController@modificar');
 
-Route::get('estudiantes','estudiantesController@guardar');
+Route::POST('estudiantes','estudiantesController@guardar');
+Route::get('/estudiantesventana','estudiantesController@ventana');
 Route::get('estudiantes/eliminar_modificar','estudiantesController@listar')->name('estudiantes_listar');
 
 Route::group(['middleware' => 'auth'], function () {
