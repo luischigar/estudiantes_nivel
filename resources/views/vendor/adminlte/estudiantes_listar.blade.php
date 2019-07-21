@@ -27,9 +27,26 @@
                         </thead>
                         <tbody>
                             
+                           @foreach($datos as $item)
                             <tr>
-                                
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->nombre}}</td>
+                                <td>{{$item->apellido}}</td>
+                                <td>{{$item->cedula}}</td>
+                                <td>{{$item->nivelid}}</td>
+                                <td>
+                                    <a href="{{url('nivel_editar', $item->id)}}" type="button" class="btn btn-block btn-success">Modificar</a></td>
+                                <td>
+
+                                    <form method="post" action="{{route('estudiantes_eliminar',$item->id)}}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <!-- <input type="hidden" name="_mothod" value="delete"> -->
+                                        <button type="submit" class="btn btn-block btn-danger">Eliminar</button>
+                                    </form>
+                                </td>
                             </tr>
+                            @endforeach
                             
                         </tbody>
                     </table>
