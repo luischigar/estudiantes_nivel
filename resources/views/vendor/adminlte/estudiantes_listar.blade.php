@@ -33,9 +33,13 @@
                                 <td>{{$item->nombre}}</td>
                                 <td>{{$item->apellido}}</td>
                                 <td>{{$item->cedula}}</td>
-                                <td>{{$item->nivelid}}</td>
+                                @foreach($datos1 as $item1)
+                                @if($item->nivelid == $item1->id)
+                                <td>{{$item1->descripcion}}</td>
+                                @endif
+                                @endforeach
                                 <td>
-                                    <a href="{{url('nivel_editar', $item->id)}}" type="button" class="btn btn-block btn-success">Modificar</a></td>
+                                    <a href="{{url('estudiantes_editar', $item->id)}}" type="button" class="btn btn-block btn-success">Modificar</a></td>
                                 <td>
 
                                     <form method="post" action="{{route('estudiantes_eliminar',$item->id)}}">

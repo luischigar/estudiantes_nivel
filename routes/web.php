@@ -25,6 +25,8 @@ Route::post('estudiantes','estudiantesController@guardar');
 Route::get('/estudiantesventana','estudiantesController@ventana');
 Route::get('estudiantes/eliminar_modificar','estudiantesController@listar')->name('estudiantes_listar');
 Route::delete('estudiantes_eliminar/{id}','estudiantesController@eliminar')->name('estudiantes_eliminar');
+Route::get('estudiantes_editar/{id}','estudiantesController@editar');
+Route::put('estudiantes_actualizar/{id}','estudiantesController@modificar');
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {

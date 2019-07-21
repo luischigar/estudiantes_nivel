@@ -22,7 +22,6 @@ class estudiantesController extends Controller
 	    $estudiantes->apellido = $request->apellido;
 	    $estudiantes->cedula = $request->cedula;
 	    $estudiantes->nivelid = $request->post("nivel");
-	    //dd($estudiantes->nivelid);
 
 	    $estudiantes->save();
 	    
@@ -30,16 +29,9 @@ class estudiantesController extends Controller
 	}
 	public function listar(){
 		$consulta = Estudiantes::all();
-		$datos = Nivel::all();
-		foreach($datos as $item1) {
-			foreach ($consulta as $item2) {
-				if ($item2->nivelid == $item1->id) {
-					$item2->nivelid = $item1->descripcion;
-				}
-			}
-	   	
-	    }
-	    return view('adminlte::estudiantes_listar')->with('datos',$consulta);
+		$datos1 = Nivel::all();
+		
+	    return view('adminlte::estudiantes_listar', compact('datos1', $datos1))->with('datos',$consulta);
 	}
 	public function eliminar($id)
 	{
@@ -48,15 +40,27 @@ class estudiantesController extends Controller
 		$consulta1->delete();
 
 		$consulta = Estudiantes::all();
-		$datos = Nivel::all();
-		foreach($datos as $item1) {
-			foreach ($consulta as $item2) {
-				if ($item2->nivelid == $item1->id) {
-					$item2->nivelid = $item1->descripcion;
-				}
-			}
-	   	
-	    }
-	    return view('adminlte::estudiantes_listar')->with('datos',$consulta);
+		$datos1 = Nivel::all();
+		
+	    return view('adminlte::estudiantes_listar', compact('datos1', $datos1))->with('datos',$consulta);
+	}
+	public function editar($id)
+	{
+		$consulta = Estudiantes::findOrFail($id);
+		$datos1 = Nivel::all();
+		 return view('adminlte::estudiantes_modificar', compact('datos1', $datos1))->with('datos',$consulta);
+
+	}
+	public function modificar(Request $request, $id)
+	{
+		$consulta = Estudiantes::findOrFail($id);
+
+		$consulta->nombre = $request->nombre;
+		$consulta->apellido = $request->apellido;
+		$consulta->cedula = $request->cedula;
+		$consulta->nivelid = $request->post("nivel");
+
+		$consulta->save();
+		return redirect('estudiantes/eliminar_modificar');
 	}
 }
