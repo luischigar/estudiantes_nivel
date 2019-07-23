@@ -25,7 +25,7 @@
                         <tbody>
                             
                             @foreach($datos as $item)
-                            <tr>
+                            <tr id="id_{{$item->id}}">
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->descripcion}}</td>
                                 <td>
@@ -36,7 +36,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <!-- <input type="hidden" name="_mothod" value="delete"> -->
-                                        <button type="submit" class="btn btn-block btn-danger">Eliminar</button>
+                                        <button onclick = "" id="" type="submit" class="btn btn-block btn-danger">Eliminar</button>
                                     </form>
                                 </td>
                             </tr>

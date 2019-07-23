@@ -9,33 +9,39 @@ class nivelController extends Controller
 {
 	public function ventana()
 	{
-		return view('adminlte::nivel_ingreso');
+		$consulta = Nivel::all();
+		return view('adminlte::nivel_ingreso')->with('datos',$consulta);
 	}
     public function guardar(Request $request){
-	    
-	    $nivel = new Nivel();
-	    
-	    $nivel->descripcion = $request->descripcion;
-	   
+	    if($request->ajax()){
+		    $nivel = new Nivel();
+		    
+		    $nivel->descripcion = $request->descripcion;
+		   
 
-	    $nivel->save();
-	    //dd($nivel->descripcion);
-	    
-	    return view('adminlte::nivel_ingreso');
+		    $nivel->save();
+		    //dd($nivel->descripcion);
+		    
+		    //return view('adminlte::nivel_ingreso');
+		    return response()->json(['mensaje'=> 'Datos Correctos']);
+		}
 	    
 	}
 	public function listar(){
 	    $consulta = Nivel::all();
 	    return view('adminlte::nivel_listar')->with('datos',$consulta);
 	}
-	public function eliminar($id)
+	public function eliminar(Request $request, $id)
 	{
+		//if($request->ajax()){
 		$consulta = Nivel::findOrFail($id);
 
 		$consulta->delete();
 
 		$consulta = Nivel::all();
 	    return view('adminlte::nivel_listar')->with('datos',$consulta);
+	    //return response()->json(['mensaje'=> 'Datos Correctos']);
+		//}
 	}
 	public function editar($id)
 	{

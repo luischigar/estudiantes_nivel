@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,10 +10,12 @@ class estudiantesController extends Controller
 {
 	public function ventana()
 	{
-		$consulta = Nivel::all();
-		return view('adminlte::estudiantes_ingreso')->with('datos',$consulta);
+		$consulta = Estudiantes::all();
+		$datos1 = Nivel::all();
+		return view('adminlte::estudiantes_ingreso', compact('datos1', $datos1))->with('datos',$consulta);
 	}
     public function guardar(Request $request){
+    	if($request->ajax()){
     	$consulta = Nivel::all();
 
     	$estudiantes = new Estudiantes();
@@ -25,7 +27,10 @@ class estudiantesController extends Controller
 
 	    $estudiantes->save();
 	    
-	    return view('adminlte::estudiantes_ingreso')->with('datos',$consulta);
+	    //return view('adminlte::estudiantes_ingreso')->with('datos',$consulta);
+
+	    return response()->json(['mensaje'=> 'Datos Correctos']);
+		}
 	}
 	public function listar(){
 		$consulta = Estudiantes::all();

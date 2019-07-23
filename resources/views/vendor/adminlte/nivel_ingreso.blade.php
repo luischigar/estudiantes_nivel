@@ -6,6 +6,7 @@
 
 
 @section('main-content')
+
 	<div class="container-fluid spark-screen">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
@@ -19,7 +20,7 @@
 	                        </div>
 	                        <!-- /.box-header -->
 	                        <div class="box-body">
-	                            <form role="form" method="post" action="{{url('/nivel')}}">
+	                            <form id="ff" role="form" method="post" action="{{url('/nivel')}}">
 	                            	
 	                                @csrf
 	                                
@@ -33,6 +34,25 @@
 	                        </div>
 	                        <!-- /.box-body -->
 	                    </div>
+	                    <div class="box box-warning">
+                        <table class="table table-bordereds">
+                        <thead>
+                            <tr>
+                                
+                                <th scope="col">Nivel</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="datos">
+                            @foreach($datos as $item)
+	                            <tr>
+	                                <td>{{$item->descripcion}}</td>
+	                                
+	                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    </div>
 					</div>
 				</div>
 			</div>
