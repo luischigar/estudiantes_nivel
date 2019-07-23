@@ -28,7 +28,7 @@
 	                                    <label>Descripcion</label>
 	                                    <input value="{{$datos->descripcion}}" name="descripcion" type="text" class="form-control" placeholder="ingrese descripcion">
 	                                </div>
-	                                <button type="submit" id="enviar" class="btn btn-success">Modificar</button>
+	                                <button type="submit" id="" class="btn btn-success">Modificar</button>
 	                            </form>
 	                        </div>
 	                        <!-- /.box-body -->

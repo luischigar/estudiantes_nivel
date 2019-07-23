@@ -4,6 +4,7 @@
 <!-- Laravel App -->
 <script src="{{ asset('/js/app.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/js/archivo.js') }}" type="text/javascript"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
       Both of these plugins are recommended to enhance the

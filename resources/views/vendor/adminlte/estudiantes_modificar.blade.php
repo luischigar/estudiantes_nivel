@@ -52,7 +52,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <button type="submit" id="enviar" class="btn btn-success">Modificar</button>
+                                <button type="submit" id="" class="btn btn-success">Modificar</button>
                             </form>
                         </div>
                         <!-- /.box-body -->

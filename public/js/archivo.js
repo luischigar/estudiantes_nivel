@@ -49,9 +49,6 @@ $(document).ready(function() {
 
 			console.log("error");
 		})
-
-
-
 	})
 	$('#enviar1').click(function(e) {
 		e.preventDefault();
@@ -64,7 +61,10 @@ $(document).ready(function() {
 		var nombre = $('input[name=nombre]').val();
 		var apellido = $('input[name=apellido]').val();
 		var cedula = $('input[name=cedula]').val();
-		var nivel = $('input[name=nivel]').val();
+		var nivel = $('select[name=nivel] option:selected').text();
+		//$('select[name="nivel"] option:selected').text());
+		//var combo = document.getElementById('nivel').text();
+		// var nivel = combo.options[combo.selected]
 		
 		var divSalida = $("#datos1");
 		var cadena = "";

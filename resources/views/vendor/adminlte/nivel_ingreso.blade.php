@@ -29,7 +29,7 @@
 	                                    <label>Descripcion</label>
 	                                    <input name="descripcion" type="text" class="form-control" placeholder="ingrese descripcion">
 	                                </div>
-	                                <button type="submit" id="enviar" class="btn btn-success">Guardar</button>
+	                                <button onclick='swal("Guardado!", "Click en OK", "Exitoso")' type="submit" id="enviar" class="btn btn-success">Guardar</button>
 	                            </form>
 	                        </div>
 	                        <!-- /.box-body -->

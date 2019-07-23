@@ -45,7 +45,7 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <button id="enviar1" type="submit" class="btn btn-success">Guardar</button>
+                                <button onclick='swal("Guardado!", "Click en OK", "Exitoso")' id="enviar1" type="submit" class="btn btn-success">Guardar</button>
                             </form>
                         </div>
                         <!-- /.box-body -->
